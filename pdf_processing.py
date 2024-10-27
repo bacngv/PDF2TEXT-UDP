@@ -5,7 +5,8 @@ from models import load_detection_model, load_structure_model, detect_objects, o
 from visualization import visualize_detected_tables, visualize_cropped_table
 from ocr import apply_ocr, apply_ocr_remaining_area
 from io_utils import save_remaining_text_to_txt, save_to_csv
-from torchvision import transforms 
+from torchvision import transforms
+import torch 
 
 # Main function to process the PDF file
 def process_pdf(pdf_path, output_folder):
