@@ -1,0 +1,7 @@
+transformers
+easyocr
+PyMuPDF 
+tqdm
+pdf2image 
+pandas 
+torch 
