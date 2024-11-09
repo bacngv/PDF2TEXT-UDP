@@ -26,7 +26,7 @@ def detect_objects(model, pixel_values, device):
         outputs = model(pixel_values)
     return outputs
 
-def outputs_to_objects(outputs, img_size, id2label):
+def outputs_to_objects(outputs, img_size, id2label, threshold=0.8):
     m = outputs.logits.softmax(-1).max(-1)
     pred_labels = list(m.indices.detach().cpu().numpy())[0]
     pred_scores = list(m.values.detach().cpu().numpy())[0]
@@ -36,7 +36,7 @@ def outputs_to_objects(outputs, img_size, id2label):
     objects = []
     for label, score, bbox in zip(pred_labels, pred_scores, pred_bboxes):
         class_label = id2label[int(label)]
-        if not class_label == 'no object':
+        if score >= threshold and not class_label == 'no object':
             objects.append({'label': class_label, 'score': float(score), 'bbox': [float(elem) for elem in bbox]})
 
     return objects
