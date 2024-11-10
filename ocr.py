@@ -9,7 +9,7 @@ import RRDBNet_arch as arch
 reader = easyocr.Reader(['vi'])
 
 # Load the RRDBNet model for image enhancement
-model_path = '/content/PDF2TEXT-UDP/models/RRDB_ESRGAN_x4.pth'  # Ensure this path is correct
+model_path = './PDF2TEXT-UDP/models/RRDB_ESRGAN_x4.pth'  # Ensure this path is correct
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model = arch.RRDBNet(3, 3, 64, 23, gc=32)
 model.load_state_dict(torch.load(model_path), strict=True)
