@@ -15,5 +15,5 @@ python3 ./PDF2TEXT-UDP/main.py
 ```
 - Eval
 ```
-python ././PDF2TEXT-UDP/eval.py
+python ./PDF2TEXT-UDP/eval.py
 ```
